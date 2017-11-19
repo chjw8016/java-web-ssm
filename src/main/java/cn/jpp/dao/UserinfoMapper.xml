@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.jpp.dao.UserinfoMapper">
+    <insert id="insert" parameterType="cn.jpp.entity.Userinfo">
+        insert into userinfo (name, age, role_id)
+        values (#{name,jdbcType=VARCHAR}, #{age,jdbcType=INTEGER}, #{roleId,jdbcType=INTEGER})
+    </insert>
+    <select id="getCountries" resultMap="ClassResultMap">
+      SELECT u.id AS userId,u.name AS userName,u.age AS userAge,r.name AS roleName FROM userinfo u ,role r WHERE u.role_id = r.id
+    </select>
+    <resultMap id="ClassResultMap" type="cn.jpp.entity.Userinfo">
+        <id column="userId" jdbcType="INTEGER" property="id"/>
+        <result column="userName" jdbcType="VARCHAR" property="name"/>
+        <result column="userAge" jdbcType="INTEGER" property="age"/>
+        <association property="role"  javaType="cn.jpp.entity.Role"
+                     resultMap="RoleResult"></association>
+    </resultMap>
+    <resultMap id="RoleResult" type="cn.jpp.entity.Role">
+        <result property="name" jdbcType="VARCHAR" column="roleName"/>
+    </resultMap>
+</mapper>

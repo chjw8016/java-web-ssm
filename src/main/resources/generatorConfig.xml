@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+    <classPathEntry
+            location="D:\tomcat\repo\mysql\mysql-connector-java\5.1.44\mysql-connector-java-5.1.44.jar"/>
+    <context id="context1" targetRuntime="MyBatis3">
+        <commentGenerator>
+            <property name="suppressDate" value="true"/>
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://dev.gammainfo.com:3306/check?useUnicode=true&amp;characterEncoding=UTF-8"
+                        userId="root" password="Gamma0903"/>
+        <javaModelGenerator targetPackage="cn.jpp.entity"
+                            targetProject="D:\java\web-ssm\src\main\java"/>
+        <sqlMapGenerator targetPackage="cn.jpp.dao"
+                         targetProject="D:\java\web-ssm\src\main\java"/>
+        <javaClientGenerator targetPackage="cn.jpp.dao"
+                             targetProject="D:\java\web-ssm\src\main\java" type="XMLMAPPER"/>
+        <table tableName="userinfo" enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+            <generatedKey column="id" sqlStatement="SELECT LAST_INSERT_ID()" identity="true" type="post"/>
+        </table>
+        <table tableName="role" enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+            <generatedKey column="id" sqlStatement="SELECT LAST_INSERT_ID()" identity="true" type="post"/>
+        </table>
+    </context>
+</generatorConfiguration>
