@@ -8,7 +8,7 @@
     <name>edu Maven Webapp</name>
     <url>http://maven.apache.org</url>
     <properties>
-        <spring.version>5.0.1.RELEASE</spring.version>
+        <spring.version>5.3.18</spring.version>
         <fastjson.version>1.2.40</fastjson.version>
     </properties>
     <dependencies>
